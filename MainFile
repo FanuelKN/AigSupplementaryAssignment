@@ -1,1 +1,94 @@
+#DESIGNING A PLANNER IN JULIA
+
+
+println("===============================================")
+println("====       DESIGNING A PLANNER IN JULIA    ====")
+println("======                                   ======")
+println("===============================================")
+
+#PROMPTING THE USER THE ENTER THE NUMBER OF TABLES
+
+println("Enter The Number Of Tables : ")
+
+tables = chomp(readline())
+
+global number_Of_tables = parse(Int, tables)
+
+
+#We are storing our Collection of Tables in an Array
+global tableCollection = Array{String}(undef, number_Of_tables)
+
+#For loop to Access each table in an Array
+for i ∈ 1:number_Of_tables #
+
+    println()
+
+    println("Enter the table at : $i ")
+    tableCollection[i] = chomp(readline()) 
+
+    println()  
+
+end
+
+println("=============================================")
+println("Enter The Total Number Of Blocks at Tables : ")
+
+blocks = chomp(readline())
+
+global number_Of_blocks = parse(Int, blocks)
+
+global blockCollection = Array{String}(undef, number_Of_blocks)
+
+for i ∈ 1:number_Of_blocks 
+
+    println()
+
+    println("Enter The Block layout at Table : $i")
+
+    blockCollection[i] = chomp(readline()) #blocks
+
+
+end
+
+#return tableCollection,blockCollection
+println("")
+
+println("======================================================================")
+println("======= THE CURRENT CONFIGURATION OF THE BLOCKS ON THE TABLES ========")
+println("===============                                      =================")
+println("===================                               ====================")
+println("======================================================================")
+
+for i ∈ 1:number_Of_blocks
+
+    println(blockCollection[i])
+
+end
+
+println("")
+
+println("========================================")
+println("====      Names Of Tables are:      ====")
+println("========================================")
+
+for i ∈ 1:number_Of_tables
+
+    println(tableCollection[i])
+
+end
+
+
+println("")
+
+println("=========================================")
+println("====         Our Goal state          ====")
+println("=========================================")
+
+goalState = sort!(blockCollection)
+
+println(goalState)
+println("=========================================")
+
+
+
 
